@@ -6,8 +6,10 @@ const app = express()
 app.set("view engine","ejs")
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static("public"))
+require("dotenv").config()
 
-mongoose.connect('mongodb+srv://rayane:Rayane140820031921@cluster0.4cfsbfo.mongodb.net/todolistDB');
+const password = process.env.password;
+mongoose.connect('mongodb+srv://rayane:'+password+'@cluster0.4cfsbfo.mongodb.net/todolistDB');
 
 
 const itemSchema = {
